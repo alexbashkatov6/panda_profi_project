@@ -18,10 +18,10 @@ from django.contrib import admin
 from django.urls import path
 from django.http import HttpResponse
 
-def panda(request):
-    return HttpResponse("Настя Солнцева - Зайка заюшка")
+# def panda(request):
+#     return HttpResponse("Здесь будет тестовая версия сайта ПП")
 
-# from panda_app.views import panda
+from panda_app.views import panda
 
 urlpatterns = [
     path('admin/', admin.site.urls),
