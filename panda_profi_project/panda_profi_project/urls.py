@@ -19,7 +19,7 @@ from django.urls import path
 from django.http import HttpResponse
 
 def panda(request):
-    return HttpResponse("Настя солнцева - Зайка")
+    return HttpResponse("Настя Солнцева - Зайка заюшка")
 
 # from panda_app.views import panda
 
