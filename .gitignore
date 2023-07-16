@@ -1,5 +1,7 @@
 __pycache__
 static
 media
+panda_profi_project/panda_app/test_algo.py
 panda_profi_project/panda_profi_project/local_settings.py
 panda_profi_project/panda_profi_project/prod_settings.py
+panda_profi_project/panda_app/migrations
