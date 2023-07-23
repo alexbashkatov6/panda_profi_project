@@ -4,7 +4,7 @@ from django.contrib import admin
 from .models import Category, Product, PaintingChamber, Vimes, ProductPhoto
 
 admin.site.register(Category)
-admin.site.register(Product)
+# admin.site.register(Product)
 admin.site.register(PaintingChamber)
 admin.site.register(Vimes)
 admin.site.register(ProductPhoto)

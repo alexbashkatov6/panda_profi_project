@@ -2,6 +2,23 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
 from django.template.loader import render_to_string
+from django.views.generic.base import View
+
+from .models import PaintingChamber
+
+
+class PaintingChambersView(View):
+    """ Список покрасочных камер """
+    def get(self, request):
+        painting_chambers = PaintingChamber.objects.all()
+        return render(request, "panda_app/painting_chambers.html", {"pc_list": painting_chambers})
+
+
+class PaintingChamberDetailView(View):
+    """ Полное описание покрасочной камеры """
+    def get(self, request, pk):
+        painting_chamber = PaintingChamber.objects.get(id=pk)
+        return render(request, "panda_app/painting_chamber_detail.html", {"pc": painting_chamber})
 
 
 # categories = {1: "masts",

@@ -37,21 +37,21 @@ class Product(models.Model):
 class PaintingChamber(Product):
     """ Покрасочные камеры """
 
-    workzone_width = models.PositiveSmallIntegerField()  # мм
-    overage_body_width = models.PositiveSmallIntegerField()  # мм
-    overage_body_height = models.PositiveSmallIntegerField()  # мм
-    overage_body_depth = models.PositiveSmallIntegerField()  # мм
-    workzone = models.PositiveSmallIntegerField()  # мм
-    light_power = models.PositiveSmallIntegerField()  # Вт/шт
-    fan_performance = models.PositiveSmallIntegerField()  # куб.м/час
-    fan_power = models.PositiveSmallIntegerField()  # кВт
-    filter_count = models.PositiveSmallIntegerField()  # шт
+    workzone_width = models.PositiveSmallIntegerField("Ширина рабочей зоны, мм")
+    overage_body_width = models.PositiveSmallIntegerField("Общая ширина корпуса, мм")
+    overage_body_height = models.PositiveSmallIntegerField("Высота корпуса, мм")
+    overage_body_depth = models.PositiveSmallIntegerField("Глубина корпуса, мм")
+    workzone = models.PositiveSmallIntegerField("Рабочая зона, мм")
+    light_power = models.PositiveSmallIntegerField("Мощность светильников, Вт/шт")
+    fan_performance = models.PositiveSmallIntegerField("Производительность вентилятора, куб.м/час")
+    fan_power = models.PositiveSmallIntegerField("Мощность вентилятора, кВт")
+    filter_count = models.PositiveSmallIntegerField("Количество фильтров, шт")
 
-    application = models.TextField()
-    work_principle = models.TextField()
-    adventages = models.TextField()
-    cabin_equipment = models.TextField()
-    equipment_set = models.TextField()
+    application = models.TextField("Применение")
+    work_principle = models.TextField("Принцип работы")
+    adventages = models.TextField("Преимущества")
+    cabin_equipment = models.TextField("Комплектация кабины")
+    equipment_set = models.TextField("Комплектация оборудования")
 
     class Meta:
         verbose_name = "Покрасочная камера"
@@ -60,18 +60,18 @@ class PaintingChamber(Product):
 
 class Vimes(Product):
     """ Ваймы """
-    blank_max_width = models.PositiveSmallIntegerField()  # мм
-    blank_max_height = models.PositiveSmallIntegerField()  # мм
-    blank_max_depth = models.PositiveSmallIntegerField()  # мм
-    overall_size = models.CharField("Габаритные размеры", max_length=150)
-    press_cylinders_stroke = models.PositiveSmallIntegerField()  # мм
-    pressure_shoe_step = models.PositiveSmallIntegerField()  # мм
-    pneumo_stand_count = models.PositiveSmallIntegerField()  # шт
-    side_cylinder_count = models.PositiveSmallIntegerField()  # шт
-    horizontal_catch_count = models.PositiveSmallIntegerField()  # шт
-    supply_pressure = models.PositiveSmallIntegerField()  # атм
-    catch_count = models.PositiveSmallIntegerField()  # шт
-    full_max_pressure = models.PositiveSmallIntegerField()  # кг
+    blank_max_width = models.PositiveSmallIntegerField("Максимальная ширина заготовки, мм")
+    blank_max_height = models.PositiveSmallIntegerField("Максимальная высота заготовки, мм")
+    blank_max_depth = models.PositiveSmallIntegerField("Максимальная толщина заготовки, мм")
+    overall_size = models.CharField("Габаритные размеры, мм х мм х мм", max_length=150)
+    press_cylinders_stroke = models.PositiveSmallIntegerField("Ход прессовых цилиндров, мм")
+    pressure_shoe_step = models.PositiveSmallIntegerField("Шаг перестановки прижимных башмаков, мм")
+    pneumo_stand_count = models.PositiveSmallIntegerField("Кол-во вертикальных пневмостоек-упоров, шт")
+    side_cylinder_count = models.PositiveSmallIntegerField("Кол-во боковых цилиндров, шт")
+    horizontal_catch_count = models.PositiveSmallIntegerField("Кол-во механических упоров в горизонтальной плоскости, шт")
+    supply_pressure = models.PositiveSmallIntegerField("Питающее давление в пневмосистеме, атм")
+    catch_count = models.PositiveSmallIntegerField("Кол-во упоров, шт")
+    full_max_pressure = models.PositiveSmallIntegerField("Максимальное давление, развиваемое при работе всех цилиндров, кг")
 
     class Meta:
         verbose_name = "Вайма"
