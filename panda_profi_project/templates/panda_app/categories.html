@@ -1,0 +1,41 @@
+{% extends 'panda_app/base.html' %}
+
+                {% block one_thing %}
+
+                    <!-- product right -->
+                    <div class="left-ads-display col-lg-9">
+                        <div class="row">
+                            {% for title_prod in title_products_list %}
+                                <div class="col-md-4 product-men">
+                                    <div class="product-shoe-info editContent text-center mt-lg-4" >
+                                        <div class="men-thumb-item">
+                                            <img src="{{ title_prod.main_photo.url }}" class="img-fluid" alt="" >
+                                        </div>
+                                        <div class="item-info-product">
+                                            <h4 class="">
+                                                <a href="{% url 'all_prod_in_category' title_prod.main_menu_category.category.url title_prod.main_menu_category.url %}#sidebar-top" class="editContent" > {{ title_prod.main_menu_category.name }} </a>
+                                            </h4>
+
+<!--                                            <div class="product_price">-->
+<!--                                                <div class="grid-price">-->
+<!--                                                    <span class="money editContent" >{{ pc.sub_category }}</span>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                            <ul class="stars">-->
+<!--                                                <li><a href="#"><span class="fa fa-star" aria-hidden="true" ></span></a></li>-->
+<!--                                                <li><a href="#"><span class="fa fa-star" aria-hidden="true" ></span></a></li>-->
+<!--                                                <li><a href="#"><span class="fa fa-star-half-o" aria-hidden="true" ></span></a></li>-->
+<!--                                                <li><a href="#"><span class="fa fa-star-half-o" aria-hidden="true" ></span></a></li>-->
+<!--                                                <li><a href="#"><span class="fa fa-star-o" aria-hidden="true" ></span></a></li>-->
+<!--                                            </ul>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <!--<div class="grid-img-right mt-4 text-right bg bg1" >
+                            <span class="money editContent" >Flat 50% Off</span>
+                        </div>-->
+                    </div>
+
+                {% endblock one_thing %}

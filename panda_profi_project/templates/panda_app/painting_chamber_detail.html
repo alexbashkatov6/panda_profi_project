@@ -1,185 +1,133 @@
 {% extends 'panda_app/base.html' %}
+{% load static %}
+{% block one_thing %}
+<section class="product_descr">
+    <h2 class="product_descr__title">Описание товара "{{ prod.title }}"</h2>
+    <div class="prod_prop">
+        <img src="{{ prod.main_photo.url }}" class="prod_prop__image">
+        <div class="prod_prop__wrapper">
+            <h3 class="prod_prop__title">Характеристики:</h3>
+            <div class="prod_prop_table">
+                <div class="prod_prop_table__name">
+                    {% if prod.workzone_width %}
+                        <div class="prod_prop_table__name-item">Ширина рабочей зоны, мм</div>
+                    {% endif %}
+                    {% if prod.overage_body_width %}
+                        <div class="prod_prop_table__name-item">Общая ширина корпуса, мм</div>
+                    {% endif %}
+                    {% if prod.overage_body_height %}
+                        <div class="prod_prop_table__name-item">Высота корпуса, мм</div>
+                    {% endif %}
+                    {% if prod.overage_body_depth %}
+                        <div class="prod_prop_table__name-item">Глубина корпуса, мм</div>
+                    {% endif %}
+                    {% if prod.workzone %}
+                        <div class="prod_prop_table__name-item">Рабочая зона, мм</div>
+                    {% endif %}
 
-                {% block one_thing %}
+                    {% if prod.external_overages %}
+                        <div class="prod_prop_table__name-item">Внешние габариты Д*Ш*В, мм</div>
+                    {% endif %}
+                    {% if prod.bumper_height %}
+                        <div class="prod_prop_table__name-item">Рабочая высота/ширина водяного отбойника, мм</div>
+                    {% endif %}
+                    {% if prod.exhaust_vent_diameter %}
+                        <div class="prod_prop_table__name-item">Диаметр вытяжного отверстия на крыше камеры, мм</div>
+                    {% endif %}
+                    {% if prod.drainage_pump_count %}
+                        <div class="prod_prop_table__name-item">Количество дренажных насосов, шт</div>
+                    {% endif %}
+                    {% if prod.pump_power %}
+                        <div class="prod_prop_table__name-item">Мощность насоса, кВт</div>
+                    {% endif %}
 
-                <!-- product right -->
-                <div class="left-ads-display col-lg-8">
-                    <div class="row">
-                        <div class="desc1-left col-md-6">
-                            <img src="{{ pc.main_photo.url }}" class="img-fluid" alt="">
-                        </div>
-                        <div class="desc1-right col-md-6 pl-lg-4">
-                            <h3 class="editContent" style="outline: none; cursor: inherit;">
-                                {{ pc.title }}</h3>
-                            <h5 class="editContent">{{ pc.sub_category }}</h5>
-                            <ul>
-                                <li style="list-style: none"><span><b>Ширина рабочей зоны, мм:</b> {{ pc.workzone_width }}</span></li>
-                                <li style="list-style: none"><span><b>Общая ширина корпуса, мм:</b> {{ pc.overage_body_width }}</span></li>
-                                <li style="list-style: none"><span><b>Высота корпуса, мм:</b> {{ pc.overage_body_height }}</span></li>
-                                <li style="list-style: none"><span><b>Глубина корпуса, мм:</b> {{ pc.overage_body_depth }}</span></li>
-                                <li style="list-style: none"><span><b>Рабочая зона, мм:</b> {{ pc.workzone }}</span></li>
-                                <li style="list-style: none"><span><b>Мощность светильников, Вт/шт:</b> {{ pc.light_power }}</span></li>
-                                <li style="list-style: none"><span><b>Производительность вентилятора, куб.м/час:</b> {{ pc.fan_performance }}</span></li>
-                                <li style="list-style: none"><span><b>Мощность вентилятора, кВт:</b> {{ pc.fan_power }}</span></li>
-                                <li style="list-style: none"><span><b>Количество фильтров, шт:</b> {{ pc.filter_count }}</span></li>
+                    {% if prod.light_power %}
+                        <div class="prod_prop_table__name-item">Мощность ламп освещения, Вт</div>
+                    {% endif %}
+                    {% if prod.fan_performance %}
+                        <div class="prod_prop_table__name-item">Производительность вентилятора, куб.м/час</div>
+                    {% endif %}
+                    {% if prod.fan_power %}
+                        <div class="prod_prop_table__name-item">Мощность вентиляторов, кВт</div>
+                    {% endif %}
 
-<!--                                <li style="list-style: none">-->
-<!--                                    <a href="#"><b>Рейтинг:</b>-->
-<!--                                    <span class="fa fa-star" aria-hidden="true"-->
-<!--                                          style="outline: none; cursor: inherit;"></span>-->
-<!--                                        <span class="fa fa-star" aria-hidden="true"-->
-<!--                                              style="outline: none; cursor: inherit;"></span>-->
-<!--                                        <span class="fa fa-star" aria-hidden="true"-->
-<!--                                              style="outline: none; cursor: inherit;"></span>-->
-<!--                                        <span class="fa fa-star" aria-hidden="true"-->
-<!--                                              style="outline: none; cursor: inherit;"></span>-->
-<!--                                        <span class="fa fa-star" aria-hidden="true"-->
-<!--                                              style="outline: none; cursor: inherit;"></span>-->
-<!--                                        <span class="editContent"-->
-<!--                                              style="outline: none; cursor: inherit;">5.0</span>-->
-<!--                                    </a>-->
-<!--                                </li>-->
-                            </ul>
-                                <div class="share-desc">
-                                    <div class="share">
-                                        <h4 class="editContent"
-                                            style="outline: none; cursor: inherit;">
-                                            Поделиться:</h4>
-                                        <ul class="w3layouts_social_list list-unstyled">
-                                            <li>
-                                                <a href="#" class="w3pvt_facebook editContent"
-                                                   style="outline: none; cursor: inherit;">
-                                                <span class="fa fa-facebook-f"
-                                                      style="outline: none; cursor: inherit;"></span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="w3pvt_twitter editContent"
-                                                   style="outline: none; cursor: inherit;">
-                                                <span class="fa fa-twitter"
-                                                      style="outline: none; cursor: inherit;"></span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="w3pvt_dribble editContent"
-                                                   style="outline: none; cursor: inherit;">
-                                                <span class="fa fa-dribbble"
-                                                      style="outline: none; cursor: inherit;"></span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                        </div>
-                    </div>
-                    <div class="row sub-para-w3layouts mt-5">
+                    {% if prod.power_supply %}
+                        <div class="prod_prop_table__name-item">Общая требуемая мощность, кВт</div>
+                    {% endif %}
+                    {% if prod.voltage %}
+                        <div class="prod_prop_table__name-item">Напряжение, В</div>
+                    {% endif %}
 
-                        <h3 class="shop-sing editContent" style="outline: none; cursor: inherit;">
-                            Описание товара</h3>
-                        <p>
-                            <img src="bundles/images/about.jpg" class="img-fluid" alt="">
-                            <img src="bundles/images/admin.jpg" class="img-fluid" alt="">
-                            <img src="bundles/images/d1.jpg" class="img-fluid" alt="">
-                        </p>
-<!--                        <div>-->
-<!--                        <h5 >-->
-<!--                            Применение</h5>-->
-<!--                        </div>-->
-                        <p class="editContent" style="outline: none; cursor: inherit;"> {{ pc.application }}
-                            </p>
-                        <p class="mt-3 italic-blue editContent"
-                           style="outline: none; cursor: inherit;">
-                            <iframe width="560" height="315"
-                                    src="https://www.youtube.com/embed/A36LahZNUiE?controls=0"
-                                    frameborder="0" allow="accelerometer; autoplay;
-                                                                           encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen>
-
-                            </iframe>
-                        </p>
-                        <p class="mt-3 editContent" style="outline: none; cursor: inherit;">
-                            Человечество дорого заплатило за технический прогресс, поставив под
-                            угрозу свое выживание.
-                            Пришло время покончить с войной между машинами и людьми.
-                            Научно-фантастический боевик,
-                            заключительная часть трилогии, перезапускающей франшизу «Терминатора»
-                            Джеймса Кэмерона.
-                        </p>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="single-form-left">
-                            <!-- contact form grid -->
-                            <div class="contact-single">
-                                <h3 class="editContent" style="outline: none; cursor: inherit;">
-                                    <span class="sub-tittle editContent"
-                                          style="outline: none; cursor: inherit;">02</span>Оставить отзыв</h3>
-                                <form action="#" method="get" class="mt-4">
-                                    <div class="form-group editContent"
-                                         style="outline: none; cursor: inherit;">
-                                        <label for="contactcomment" class="editContent"
-                                               style="outline: none; cursor: inherit;">Ваш комментарий
-                                            *</label>
-                                        <textarea class="form-control border" rows="5"
-                                                  id="contactcomment" required=""></textarea>
-                                    </div>
-                                    <div class="d-sm-flex">
-                                        <div class="col-sm-6 form-group p-0 editContent"
-                                             style="outline: none; cursor: inherit;">
-                                            <label for="contactusername" class="editContent"
-                                                   style="outline: none; cursor: inherit;">Имя
-                                                *</label>
-                                            <input type="text" class="form-control border"
-                                                   id="contactusername" required="">
-                                        </div>
-                                        <div class="col-sm-6 form-group ml-sm-3 editContent"
-                                             style="outline: none; cursor: inherit;">
-                                            <label for="contactemail" class="editContent"
-                                                   style="outline: none; cursor: inherit;">Email
-                                                *</label>
-                                            <input type="email" class="form-control border"
-                                                   id="contactemail" required="">
-                                        </div>
-                                    </div>
-                                    <button type="submit"
-                                            class="mt-3 btn btn-success btn-block py-3"
-                                            style="outline: none; cursor: inherit;">Отправить
-                                    </button>
-                                </form>
-                            </div>
-                            <!--  //contact form grid ends here -->
-                        </div>
-                        <div class="media py-5">
-                            <img src="bundles/images/te2.jpg" class="mr-3 img-fluid" alt="image"
-                                 style="outline: none; cursor: inherit;">
-                            <div class="media-body mt-4">
-                                <h5 class="mt-0 editContent"
-                                    style="outline: none; cursor: inherit;">Daniel Doe</h5>
-                                <p class="mt-2 editContent" style="outline: none; cursor: inherit;">
-                                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-                                    scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-                                    vulputate at, tempus viverra turpis.
-                                </p>
-                                <div class="media mt-5 editContent"
-                                     style="outline: none; cursor: inherit;">
-                                    <a class="pr-3" href="#">
-                                        <img src="bundles/images/te1.jpg" class="img-fluid "
-                                             alt="image" style="outline: none; cursor: inherit;">
-                                    </a>
-                                    <div class="media-body">
-                                        <h5 class="mt-0 editContent"
-                                            style="outline: none; cursor: inherit;">Leia Organa</h5>
-                                        <p class="mt-2 editContent"
-                                           style="outline: none; cursor: inherit;"> Cras sit amet
-                                            nibh libero, in gravida nulla. Nulla vel metus
-                                            scelerisque ante sollicitudin. Cras purus odio,
-                                            vestibulum in vulputate at, tempus viverra turpis. Fusce
-                                            condimentum nunc ac nisi vulputate fringilla..</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% if prod.filter_count %}
+                        <div class="prod_prop_table__name-item">Количество фильтров, шт</div>
+                    {% endif %}
                 </div>
-                {% endblock one_thing %}
+                <div class="prod_prop_table__value">
+                    {% if prod.workzone_width %}
+                        <div class="prod_prop_table__value-item">{{ prod.workzone_width }}</div>
+                    {% endif %}
+                    {% if prod.overage_body_width %}
+                        <div class="prod_prop_table__value-item">{{ prod.overage_body_width }}</div>
+                    {% endif %}
+                    {% if prod.overage_body_height %}
+                        <div class="prod_prop_table__value-item">{{ prod.overage_body_height }}</div>
+                    {% endif %}
+                    {% if prod.overage_body_depth %}
+                        <div class="prod_prop_table__value-item">{{ prod.overage_body_depth }}</div>
+                    {% endif %}
+                    {% if prod.workzone %}
+                        <div class="prod_prop_table__value-item">{{ prod.workzone }}</div>
+                    {% endif %}
+
+                    {% if prod.external_overages %}
+                        <div class="prod_prop_table__value-item">{{ prod.external_overages }}</div>
+                    {% endif %}
+                    {% if prod.bumper_height %}
+                        <div class="prod_prop_table__value-item">&nbsp</div>
+                        <div class="prod_prop_table__value-item">{{ prod.bumper_height }}</div>
+                    {% endif %}
+                    {% if prod.exhaust_vent_diameter %}
+                        <div class="prod_prop_table__value-item">&nbsp</div>
+                        <div class="prod_prop_table__value-item">{{ prod.exhaust_vent_diameter }}</div>
+                    {% endif %}
+                    {% if prod.drainage_pump_count %}
+                        <div class="prod_prop_table__value-item">{{ prod.drainage_pump_count }}</div>
+                    {% endif %}
+                    {% if prod.pump_power %}
+                        <div class="prod_prop_table__value-item">{{ prod.pump_power }}</div>
+                    {% endif %}
+
+                    {% if prod.light_power %}
+                        <div class="prod_prop_table__value-item">{{ prod.light_power }}</div>
+                    {% endif %}
+                    {% if prod.fan_performance %}
+                        <div class="prod_prop_table__value-item">{{ prod.fan_performance }}</div>
+                    {% endif %}
+                    {% if prod.fan_power %}
+                        <div class="prod_prop_table__value-item">{{ prod.fan_power }}</div>
+                    {% endif %}
+
+                    {% if prod.power_supply %}
+                        <div class="prod_prop_table__value-item">{{ prod.power_supply }}</div>
+                    {% endif %}
+                    {% if prod.voltage %}
+                        <div class="prod_prop_table__value-item">{{ prod.voltage }}</div>
+                    {% endif %}
+
+                    {% if prod.filter_count %}
+                        <div class="prod_prop_table__value-item">{{ prod.filter_count }}</div>
+                    {% endif %}
+                </div>
+            </div>
+            {% if prod.price %}
+                <h3 class="prod_prop__price">Цена товара, руб : {{ prod.price }}</h3>
+            {% endif %}
+        </div>
+    </div>
+    {% if prod.description %}
+        <div class="prod_prop__descr">
+            {{ prod.description|safe }}
+        </div>
+    {% endif %}
+</section>
+{% endblock one_thing %}

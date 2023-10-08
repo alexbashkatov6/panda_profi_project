@@ -1,55 +1,23 @@
-        <div class="main-banner bg bg1" id="home">
-
-            <!-- header -->
-            <header class="header">
-                <div class="container-fluid px-lg-5">
-                    <!-- nav -->
-                    <nav class="py-4">
-                        <div id="logo">
-                            <h1> <a href="index.html" class="editContent" style="outline: none; outline-offset: -2px; cursor: inherit; color: rgb(255, 255, 255); font-size: 40px; background-color: rgba(0, 0, 0, 0); font-family: &quot;Source Sans Pro&quot;, sans-serif;">ПАНДА ПРОФИ</a></h1>
-                        </div>
-
-                        <label for="drop" class="toggle">Menu</label>
-                        <input type="checkbox" id="drop">
-                        <ul class="menu mt-2">
-                            <li class="active"><a href="index.html">Главная</a></li>
-                            <li>
-                                <!-- First Tier Drop Down -->
-                                <label for="drop-2" class="toggle">Категории товаров<span class="fa fa-angle-down" aria-hidden="true" ></span> </label>
-                                <a href="#">Категории товаров<span class="fa fa-angle-down" aria-hidden="true"></span></a>
-                                <input type="checkbox" id="drop-2">
-                                <ul>
-                                    <li><a href="painting_chamber_single.html">Покрасочные камеры</a></li>
-                                    <li><a href="painting_chamber_single.html">Ваймы</a></li>
-<!--                                    <li><a href="painting_chamber_single.html">Мультфильмы</a></li>-->
-                                </ul>
-                            </li>
-                            <li><a href="contact.html" style="color: rgb(255, 255, 255); font-weight: 700; text-transform: uppercase;">Контакты</a></li>
-                        </ul>
-                    </nav>
-                    <!-- //nav -->
-                </div>
-            </header>
-            <!-- //header -->
-            <!--/banner-->
-
-<!--            <div class="banner-info">-->
-<!--                <p class="editContent" >лучший сайт на django 3</p>-->
-<!--                <h3 class="mb-4 editContent">Все о кино</h3>-->
-<!--                <div class="ban-buttons">-->
-
-
-<!--                </div>-->
-<!--            </div>-->
-
-            <!--// banner-inner -->
-
+{% load static %}
+<section class="header">
+    <div class="container header__wrapper">
+            <img src="{% static 'panda_app/img/panda_icon.svg' %}" class="header__image">
+        <div class="header__title_wrapper">
+            <h1 class="header__title">Панда</h1>
+            <hr class="header__hr">
+            <h1 class="header__title">профи</h1>
         </div>
-                <!---->
-<!--        <ol class="breadcrumb editContent">-->
-<!--            <li class="breadcrumb-item">-->
-<!--                <a href="index.html" class="editContent">Home</a>-->
-<!--            </li>-->
-<!--            <li class="breadcrumb-item active editContent">Single Page</li>-->
-<!--        </ol>-->
-        <!---->
+        <div class="header__menu">
+<!--            <a href="{% url 'main' %}" class="header__link-item">-->
+                <div class="header__menu-item">Главная</div>
+<!--            </a>-->
+            <div class="header__menu-item">Каталог</div>
+            <a href="#contacts" class="header__link-item">
+                <div class="header__menu-item">Контакты</div>
+            </a>
+            <a href="{% url 'about' %}" class="header__link-item">
+                <div class="header__menu-item">О&nbspкомпании</div>
+            </a>
+        </div>
+     </div>
+</section>

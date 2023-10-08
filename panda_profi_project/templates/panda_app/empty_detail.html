@@ -1,0 +1,20 @@
+{% extends 'panda_app/base.html' %}
+{% load static %}
+{% block one_thing %}
+<section class="product_descr">
+    <h2 class="product_descr__title">Описание товара "{{ prod.title }}"</h2>
+    <div class="prod_prop">
+        <img src="{{ prod.main_photo.url }}" class="prod_prop__image">
+        <div class="prod_prop__wrapper">
+            {% if prod.price %}
+                <h3 class="prod_prop__price">Цена товара, руб : {{ prod.price }}</h3>
+            {% endif %}
+        </div>
+    </div>
+    {% if prod.description %}
+        <div class="prod_prop__descr">
+            {{ prod.description|safe }}
+        </div>
+    {% endif %}
+</section>
+{% endblock one_thing %}

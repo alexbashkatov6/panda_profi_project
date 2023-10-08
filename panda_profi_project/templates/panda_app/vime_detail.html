@@ -1,0 +1,104 @@
+{% extends 'panda_app/base.html' %}
+{% load static %}
+{% block one_thing %}
+<section class="product_descr">
+    <h2 class="product_descr__title">Описание товара "{{ prod.title }}"</h2>
+    <div class="prod_prop">
+        <img src="{{ prod.main_photo.url }}" class="prod_prop__image">
+        <div class="prod_prop__wrapper">
+            <h3 class="prod_prop__title">Характеристики:</h3>
+            <div class="prod_prop_table">
+                <div class="prod_prop_table__name">
+                    {% if prod.blank_max_width %}
+                        <div class="prod_prop_table__name-item">Максимальная ширина заготовки, мм</div>
+                    {% endif %}
+                    {% if prod.blank_max_height %}
+                        <div class="prod_prop_table__name-item">Максимальная высота заготовки, мм</div>
+                    {% endif %}
+                    {% if prod.blank_max_depth %}
+                        <div class="prod_prop_table__name-item">Максимальная толщина заготовки, мм</div>
+                    {% endif %}
+                    {% if prod.overall_size %}
+                        <div class="prod_prop_table__name-item">Габаритные размеры, мм х мм х мм</div>
+                    {% endif %}
+                    {% if prod.press_cylinders_stroke %}
+                        <div class="prod_prop_table__name-item">Ход прессовых цилиндров, мм</div>
+                    {% endif %}
+                    {% if prod.pressure_shoe_step %}
+                        <div class="prod_prop_table__name-item">Шаг перестановки прижимных башмаков, мм</div>
+                    {% endif %}
+                    {% if prod.pneumo_stand_count %}
+                        <div class="prod_prop_table__name-item">Кол-во вертикальных пневмостоек-упоров, шт</div>
+                    {% endif %}
+                    {% if prod.side_cylinder_count %}
+                        <div class="prod_prop_table__name-item">Кол-во боковых цилиндров, шт</div>
+                    {% endif %}
+                    {% if prod.horizontal_catch_count %}
+                        <div class="prod_prop_table__name-item">Кол-во механических упоров в горизонтальной плоскости, шт</div>
+                    {% endif %}
+                    {% if prod.supply_pressure %}
+                        <div class="prod_prop_table__name-item">Питающее давление в пневмосистеме, атм</div>
+                    {% endif %}
+                    {% if prod.catch_count %}
+                        <div class="prod_prop_table__name-item">Кол-во упоров, шт</div>
+                    {% endif %}
+                    {% if prod.full_max_pressure %}
+                        <div class="prod_prop_table__name-item">Максимальное давление, развиваемое при работе всех цилиндров, кг</div>
+                    {% endif %}
+                </div>
+                <div class="prod_prop_table__value">
+                    {% if prod.blank_max_width %}
+                        <div class="prod_prop_table__value-item">{{ prod.blank_max_width }}</div>
+                    {% endif %}
+                    {% if prod.blank_max_height %}
+                        <div class="prod_prop_table__value-item">{{ prod.blank_max_height }}</div>
+                    {% endif %}
+                    {% if prod.blank_max_depth %}
+                        <div class="prod_prop_table__value-item">{{ prod.blank_max_depth }}</div>
+                    {% endif %}
+                    {% if prod.overall_size %}
+                        <div class="prod_prop_table__value-item">{{ prod.overall_size }}</div>
+                    {% endif %}
+                    {% if prod.press_cylinders_stroke %}
+                        <div class="prod_prop_table__value-item">{{ prod.press_cylinders_stroke }}</div>
+                    {% endif %}
+                    {% if prod.pressure_shoe_step %}
+                        <div class="prod_prop_table__value-item">&nbsp</div>
+                        <div class="prod_prop_table__value-item">{{ prod.pressure_shoe_step }}</div>
+                    {% endif %}
+                    {% if prod.pneumo_stand_count %}
+                        <div class="prod_prop_table__value-item">&nbsp</div>
+                        <div class="prod_prop_table__value-item">{{ prod.pneumo_stand_count }}</div>
+                    {% endif %}
+                    {% if prod.side_cylinder_count %}
+                        <div class="prod_prop_table__value-item">{{ prod.side_cylinder_count }}</div>
+                    {% endif %}
+                    {% if prod.horizontal_catch_count %}
+                        <div class="prod_prop_table__value-item">&nbsp</div>
+                        <div class="prod_prop_table__value-item">{{ prod.horizontal_catch_count }}</div>
+                    {% endif %}
+                    {% if prod.supply_pressure %}
+                        <div class="prod_prop_table__value-item">&nbsp</div>
+                        <div class="prod_prop_table__value-item">{{ prod.supply_pressure }}</div>
+                    {% endif %}
+                    {% if prod.catch_count %}
+                        <div class="prod_prop_table__value-item">{{ prod.catch_count }}</div>
+                    {% endif %}
+                    {% if prod.full_max_pressure %}
+                        <div class="prod_prop_table__value-item">&nbsp</div>
+                        <div class="prod_prop_table__value-item">{{ prod.full_max_pressure }}</div>
+                    {% endif %}
+                </div>
+            </div>
+            {% if prod.price %}
+                <h3 class="prod_prop__price">Цена товара, руб : {{ prod.price }}</h3>
+            {% endif %}
+        </div>
+    </div>
+    {% if prod.description %}
+        <div class="prod_prop__descr">
+            {{ prod.description|safe }}
+        </div>
+    {% endif %}
+</section>
+{% endblock one_thing %}

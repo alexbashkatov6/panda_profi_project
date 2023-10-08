@@ -1,0 +1,17 @@
+{% extends 'panda_app/base.html' %}
+
+{% block one_thing %}
+<section class="product_card_list">
+    <h2 class="product_card_list__title">Товары категории "{{ product_subcategory_rus }}"</h2>
+    <div class="container product_card_list__wrapper">
+        {% for product in product_list %}
+            <a class="product_card__link-item" href="{% url product_category product_subcategory product.url %}" >
+                <div class="product_card">
+                    <img src="{{ product.main_photo.url }}" class="product_card__image">
+                    <div class="product_card__title">{{ product.title }}</div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+</section>
+{% endblock one_thing %}
